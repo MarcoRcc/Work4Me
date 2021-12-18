@@ -14,10 +14,10 @@ root.innerHTML =
       '<form class="d-flex">'+
 
         '<div class="dropdown pe-2">'+
-          '<select class="form-select" id="categoria" name="categoria" style="width: 100px;">'+
-            '<option value="1">One</option>'+
-            '<option value="2">Two</option>'+
-            '<option value="3">Three</option>'+
+          '<select class="form-select" id="categoria" name="categoria" style="width: 150px;">'+
+            '<option value="giardinaggio">Giardinaggio</option>'+
+            '<option value="informatica">Informatica</option>'+
+            '<option value="babysitting">Babysitting</option>'+
           '</select>'+
         '</div>'+
         '<input class="form-control me-2 " type="search" placeholder="Search" aria-label="Search">'+

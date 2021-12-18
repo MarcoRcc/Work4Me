@@ -13,21 +13,17 @@ location.search.slice(1).split("&").forEach(function(pair) {
     pair = pair.split("="); 
     params[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]); 
 });
-console.log("Ciao");
 let id = params['id'];
 
 var request = new XMLHttpRequest();
 request.open('GET', 'http://localhost:49146/api/utenti/annunci/'+id, true);
 request.onload = function () {
-    //console.log("Ciao");
-    //console.log("Ciao");
-    
-    // Begin accessing JSON data here
+
     var data = JSON.parse(this.response);
-    console.log(Object.keys(data).length);
+    //console.log(Object.keys(data).length);
 
     if (request.status >= 200 && request.status < 400) {
-        //console.log("Ciao");
+ 
         for(let i = 0; i < Object.keys(data).length; i++){
                 
             $('#annunci').trigger('add.owl.carousel', [

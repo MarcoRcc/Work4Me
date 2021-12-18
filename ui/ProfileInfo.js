@@ -15,27 +15,6 @@ request.onload = function () {
 
     if (request.status >= 200 && request.status < 400) {
 
-        /*for(let i = 0; i < Object.keys(data).length; i++){
-            if(data[i]._id == id){
-
-                let nome = document.getElementById('nome');
-                nome.innerHTML = data[i].nome;
-
-                let congome = document.getElementById('cognome');
-                cognome.innerHTML = data[i].cognome;
-
-                let dataNascita = document.getElementById('dataNascita');
-                dataNascita.innerHTML = data[i].dataNascita;
-
-                let email = document.getElementById('email');
-                email.innerHTML = data[i].email;
-
-                let recensioni = document.getElementById('recensioni');
-                recensioni.innerHTML = data[i].recensioni;
-
-            }
-        }*/
-
         let nome = document.getElementById('nome');
         nome.innerHTML = data[0].nome;
 

@@ -15,43 +15,10 @@ request.onload = function () {
     
     // Begin accessing JSON data here
     var data = JSON.parse(this.response);
-    console.log(Object.keys(data).length);
+    //console.log(Object.keys(data).length);
 
     if (request.status >= 200 && request.status < 400) {
 
-        /*
-        for(let i = 0; i < Object.keys(data).length; i++){
-            if(data[i]._id == id){
-                
-                //Cambio titolo
-                let titolo = document.getElementById('titolo');
-                titolo.innerHTML = data[i].titolo;
-            
-                //Cambio descrizione
-                let descrizione = document.getElementById('descrizione');
-                descrizione.innerHTML = data[i].descrizione;
-
-                //Cambio prezzo
-                let prezzo = document.getElementById('prezzo');// Preleva solo la parte intera
-                prezzo.innerHTML = data[i].costo;
-
-                //Cambio rating
-                let rating = document.getElementById('rating');//Ancora da testare
-                let sum = 0;
-                let n = data[i].voti.length;
-                let r = 0;
-                for(let j = 0 ; j < n && n != 0; j++){
-                    sum += data[i].voti[j];
-                }
-                if(n != 0)
-                    r = sum/n;
-
-                console.log(r);
-                rating.innerHTML = r;
-                
-            }
-        }
-        */
 
         //Cambio titolo
         let titolo = document.getElementById('titolo');
@@ -63,21 +30,21 @@ request.onload = function () {
 
         //Cambio prezzo
         let prezzo = document.getElementById('prezzo');// Preleva solo la parte intera
-        prezzo.innerHTML = data[0].costo;
+        prezzo.innerHTML = data[0].costo + "€";
 
         //Cambio rating
         let rating = document.getElementById('rating');//Ancora da testare
         let sum = 0;
         let n = data[0].voti.length;
         let r = 0;
-        for(let j = 0 ; j < n && n != 0; j++){
+        /*for(let j = 0 ; j < n && n != 0; j++){
             sum += data[0].voti[j];
         }
         if(n != 0)
             r = sum/n;
-
+        */
         console.log(r);
-        rating.innerHTML = r;
+        rating.innerHTML = "Rating "+r;
 
 
     } else {
