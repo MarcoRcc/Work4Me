@@ -113,7 +113,6 @@ app.get('/api/annunci/test', (request, response) => {                           
 
     MongoClient.connect(CONNECTION_STRING, { useNewUrlParser: true }, (error, client) => {
         database = client.db(DATABASE);
-        //console.log("Mongo DB Connection Successfull");
         database.collection("AnnunciTest").find({}).toArray((error, result) => {
             if (error) {
                 console.log(error);
