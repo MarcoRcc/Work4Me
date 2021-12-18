@@ -7,6 +7,56 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 module.exports = app;
 
+//moduli per generare documentazione API
+const swaggerJsDoc = require('swagger-jsdoc');
+const swaggerUi = require('swagger-ui-express');
+
+const swaggerOptions = {
+    swaggerDefinition: {
+        openapi: '3.0.0',
+        info: {
+            title: 'Express API for Wor4Me',
+            version: '1.0.0',
+            description:
+                'This is a REST API application made with Express.',
+            license: {
+                name: 'Licensed Under MIT',
+                url: 'https://spdx.org/licenses/MIT.html',
+            },
+            contact: {
+                name: 'G30',
+                url: 'https://github.com/MarcoRcc/Work4Me',
+            },
+        },
+        servers: [
+            {
+                url: 'http://localhost:49146/',
+                description: 'Development server',
+            },
+        ],
+    },
+    apis: [
+        "index.js",
+
+        "docs/delete_annunci.yaml", 
+        "docs/docs/delete_utenti.yaml",
+        "docs/get_annunci_by_proprietario.yaml",
+        "docs/get_annunci_count.yaml",
+        "docs/get_annunci_test.yaml", 
+        "docs/get_annunci.yaml",
+        "docs/get_annuncio_by_id.yaml",
+        "docs/get_utenti_by_id.yaml",  
+        "docs/get_utenti.yaml",
+        "docs/post_annunci_test.yaml",
+        "docs/post_annunci.yaml",
+        "docs/put_annunci.yaml",
+        "docs/put_utenti.yaml"
+    ]
+};
+const swaggerDocs = swaggerJsDoc(swaggerOptions);
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+
+
 var MongoClient = require("mongodb").MongoClient;
 const { request, response } = require("express");
 var CONNECTION_STRING = "mongodb+srv://admin:LaC8ubnAvlGxSOnv@cluster0.bnp7x.mongodb.net/test?authSource=admin&replicaSet=atlas-u1s8jo-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true"
@@ -58,6 +108,7 @@ app.get('/api/annunci', (request, response) => {                                
 
 })
 
+
 app.get('/api/annunci/test', (request, response) => {                                    //Ritorna annunci test
 
     MongoClient.connect(CONNECTION_STRING, { useNewUrlParser: true }, (error, client) => {
@@ -103,7 +154,6 @@ app.get('/api/utenti', (request, response) => {                                 
 
 })
 
-
 app.get('/api/utenti/:id', (request, response) => {                                    //Ritorna info di uno specifico utente
 
     const id = ObjectId(request.params.id);
@@ -111,11 +161,11 @@ app.get('/api/utenti/:id', (request, response) => {                             
         if (error) {
             console.log(error);
         }
-        //console.log(request.body['id']);
         response.send(result);
     })
 
 })
+
 
 app.get('/api/annunci/:id', (request, response) => {                                    //Ritorna info di uno specifico annuncio
 
@@ -124,7 +174,7 @@ app.get('/api/annunci/:id', (request, response) => {                            
         if (error) {
             console.log(error);
         }
-        //console.log(request.body['id']);
+        console.log(request.body['id']);
         response.send(result);
     })
 
@@ -138,7 +188,7 @@ app.get('/api/utenti/annunci/:id', (request, response) => {                     
         if (error) {
             console.log(error);
         }
-        //console.log(request.body['idProprietario']);
+        console.log(request.body['idProprietario']);
         response.send(result);
     })
 
@@ -169,13 +219,13 @@ app.post('/api/utenti', (request, response) => {            //Crea nuovo utente
 app.post('/api/annunci', (request, response) => {               //Crea nuovo annuncio
 
     database.collection("Annunci").insertOne({
-        _idProprietario: ObjectId(request.body['idProprietario']),          //??    
+        _idProprietario: ObjectId(request.body['idProprietario']),         
         titolo: request.body['titolo'],
         descrizione: request.body['descrizione'],
         costo: request.body['costo'],
         luogo: request.body['luogo'],
         categoria: request.body['categoria'],
-        foto: request.body['foto'],                                         //??    Array di stringhe
+        foto: request.body['foto'],                             
         voti: [],
         segnalazioni: 0,
         sponsorizzato: false,
@@ -190,13 +240,13 @@ app.post('/api/annunci', (request, response) => {               //Crea nuovo ann
 app.post('/api/annunci/test', (request, response) => {               //Crea nuovo annuncio test
 
     database.collection("AnnunciTest").insertOne({
-        _idProprietario: ObjectId(request.body['idProprietario']),          //??    
+        _idProprietario: ObjectId(request.body['idProprietario']),            
         titolo: request.body['titolo'],
         descrizione: request.body['descrizione'],
         costo: request.body['costo'],
         luogo: request.body['luogo'],
         categoria: request.body['categoria'],
-        foto: request.body['foto'],                                         //??    Array di stringhe
+        foto: request.body['foto'],                                       
         voti: [],
         segnalazioni: 0,
         sponsorizzato: false,
