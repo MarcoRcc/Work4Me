@@ -75,4 +75,4 @@
                         description: Indica se l'annuncio e' visualizzabile oppure no dagli altri utenti nel sistema
                         example: false
       404:
-        description: l'annuncio non e' stato trovato.
+        description: L'annuncio non e' stato trovato.

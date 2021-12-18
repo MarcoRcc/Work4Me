@@ -7,9 +7,9 @@
         schema:
             type: string
         required: true
-        description: l'ID dell'annuncio.
+        description: L'ID dell'annuncio.
     responses:
       200:
-        description: l'annuncio e' stato rimosso.
+        description: L'annuncio e' stato rimosso.
       404:
-        description: l'annuncio non e' stato trovato.
+        description: L'annuncio non e' stato trovato.

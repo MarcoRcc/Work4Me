@@ -56,9 +56,9 @@
                     type: array
                     items: 
                       type: integer
-                      description: numero identificativo del badges
+                      description: Numero identificativo del badges
                       example: 5
-                    description: badges posseduti dall'utente
+                    description: Badges posseduti dall'utente
                     example: [1,3,5,11]
       404:
-        description: l'utente non e' stato trovato.
+        description: L'utente non e' stato trovato.

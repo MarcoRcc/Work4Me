@@ -7,9 +7,9 @@
         schema:
             type: string
         required: true
-        description: l'ID dell'utente.
+        description: L'ID dell'utente.
     responses:
       200:
-        description: l'utente e' stato rimosso.
+        description: L'utente e' stato rimosso.
       404:
-        description: l'utente non e' stato trovato.
+        description: L'utente non e' stato trovato.
