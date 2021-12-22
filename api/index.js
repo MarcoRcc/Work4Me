@@ -173,7 +173,7 @@ app.get('/api/annunci/:id', (request, response) => {                            
         if (error) {
             console.log(error);
         }
-        console.log(request.body['id']);
+        //console.log(request.body['id']);
         response.send(result);
     })
 
@@ -187,7 +187,7 @@ app.get('/api/utenti/annunci/:id', (request, response) => {                     
         if (error) {
             console.log(error);
         }
-        console.log(request.body['idProprietario']);
+        //console.log(request.body['idProprietario']);
         response.send(result);
     })
 
