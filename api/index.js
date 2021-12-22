@@ -173,7 +173,7 @@ app.get('/api/annunci/:id', (request, response) => {                            
         if (error) {
             console.log(error);
         }
-        console.log(request.body['id']);
+        //console.log(request.body['id']);
         response.send(result);
     })
 
@@ -187,7 +187,7 @@ app.get('/api/utenti/annunci/:id', (request, response) => {                     
         if (error) {
             console.log(error);
         }
-        console.log(request.body['idProprietario']);
+        //console.log(request.body['idProprietario']);
         response.send(result);
     })
 
@@ -201,6 +201,9 @@ app.post('/api/utenti', (request, response) => {            //Crea nuovo utente
     var hash = crypto.createHash('sha256').update(password).digest('hex');
 
     database.collection("Utenti").insertOne({
+        nome: request.body['nome'],
+        cognome: request.body['cognome'],
+        dataNascita: request.body['dataNascita'],
         email: request.body['email'],
         passwordHash: hash,
         refCode: referral,
