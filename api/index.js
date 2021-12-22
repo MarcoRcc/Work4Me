@@ -37,7 +37,7 @@ const swaggerOptions = {
     },
     apis: [
         "index.js",
-
+        
         "docs/delete_annunci.yaml", 
         "docs/delete_utenti.yaml",
         "docs/get_annunci_by_proprietario.yaml",
